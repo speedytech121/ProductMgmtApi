@@ -1,4 +1,4 @@
-Documentation: Flask REST API Project Setup & Run Guide (Docker)
+# **Documentation: Flask REST API Project Setup & Run Guide (Docker)**
 1. Project Overview
 This is a Flask-based REST API project with PostgreSQL as the database. The project is containerized using Docker and supports full CRUD operations on a `Product` model via API endpoints.
 2. Install Required Tools
