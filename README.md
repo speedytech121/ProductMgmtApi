@@ -6,17 +6,13 @@ Ensure the following tools are installed on your system:
 - Docker
 - Docker Compose
 - Postman for API testing
-3. Clone Project
-Git clone repo
-Python -m venv env
-Windows : ./venv/Scripts/activate
-Linux: source ./env/bin/activate
-Go into the project directory
+
 3. Project Structure
 The project contains:
 - Flask application (`app/`)
 - Models, routes, and configuration files
 - Docker and Docker Compose files for easy deployment
+
 4. Environment Variables
 Inside the Docker Compose file, environment variables are defined for the database service:
 - DB_HOST: Host name of the DB service (e.g., `db`)
@@ -24,21 +20,27 @@ Inside the Docker Compose file, environment variables are defined for the databa
 - DB_USER: Username for the DB
 - DB_PASS: Password for the DB
 These variables are used inside the Flask app to build the SQLAlchemy connection string.
+
 5. Start the Application
 Clone git repo
 ```
-
+git clone https://github.com/speedytech121/ProductMgmtApi.git
 ```
-Create virtual environment
+Create virtual environment (optional if not running with docker)
 ```
 Python -m venv env
 ```
-Activate virtual environment
+Activate virtual environment (optional if not running with docker)
 ```
 Windows : ./venv/Scripts/activate
 Linux: source ./env/bin/activate
 ```
 Run Docker Desktop Engine First (Make Sure It should be in running stage).
+Run the following command to down the running containers if running
+```
+docker-compose down
+```
+
 Run the following command in the project root to start all services:
 ```
 docker-compose up --build
