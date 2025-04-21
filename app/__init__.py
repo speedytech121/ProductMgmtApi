@@ -5,6 +5,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 import os
 from flasgger import Swagger
+from app.routes import bp
 
 
 def create_app():
@@ -14,10 +15,9 @@ def create_app():
     db.init_app(app)
 
     # Register blueprints
-    from app.routes import bp
     app.register_blueprint(bp)
 
-    # ✅ Register error handlers after app is created
+    # Register error handlers after app is created
     register_error_handlers(app)
 
     
@@ -28,10 +28,11 @@ def create_app():
     file_handler.setFormatter(logging.Formatter(
         '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
     ))
+
     file_handler.setLevel(logging.INFO)
     app.logger.addHandler(file_handler)
     app.logger.setLevel(logging.INFO)
     app.logger.info('App startup')
 
-    Swagger(app)  # ✅ Register Swagger here
+    Swagger(app)  # Register Swagger here
     return app
